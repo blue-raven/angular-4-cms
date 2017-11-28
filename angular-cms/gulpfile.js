@@ -1,6 +1,7 @@
 const   gulp    = require( 'gulp' ),
         ts      = require( 'gulp-typescript' ),
-        nodemon = require( 'gulp-nodemon' )
+        nodemon = require( 'gulp-nodemon' ),
+        copy    = require( 'gulp-copy' ),
         chalk = require( 'chalk' );
 
 const magenta   = chalk.bgMagenta.white,
@@ -10,7 +11,7 @@ const project = ts.createProject( 'tsconfig.server.json' );
 
 const config = {
 
-    src: 'server/src/**/*.ts',
+    tsSrc: 'server/src/**/*.ts',
     dest: 'server/dist'
 };
 
@@ -24,7 +25,7 @@ gulp.task( 'transpile', () => {
 
 gulp.task( 'watch', [ 'transpile' ], () => {
 
-    gulp.watch( config.src, [ 'transpile' ] );
+    gulp.watch( config.tsSrc, [ 'transpile' ] );
 });
 
 gulp.task( 'dev', () => {

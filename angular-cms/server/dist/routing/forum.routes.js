@@ -7,13 +7,14 @@ class ForumRoutes {
         this._router = express_1.Router();
         this.mountRoutes();
     }
+    get router() { return this._router; }
     mountRoutes() {
         this._router.get(this._namespace + '/test', this.test);
     }
+    ;
     test(req, res) {
         res.status(200).json({ message: 'Success!' });
     }
-    get namespace() { return this._namespace; }
-    get router() { return this._router; }
+    ;
 }
 exports.default = new ForumRoutes();

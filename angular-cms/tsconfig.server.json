@@ -1,18 +1,23 @@
-{
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "sourceMap": true,
-        "outDir": "server/dist",
-        "typeRoots": [
-            "node_modules/@types"
-        ]
-    },
-    "include": [
-        "server/src/**/*.ts",
-        "server/src/server.ts"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+{    
+        "compilerOptions": {
+            "module": "commonjs",    
+            "target": "es6",    
+            "sourceMap": true,    
+            "outDir": "server/dist",    
+            "typeRoots": [
+    
+                "node_modules/@types"    
+            ]    
+        },
+    
+        "include": [
+    
+            "server/src/**/*.ts",    
+            "server/src/server.ts"    
+        ],
+    
+        "exclude": [
+    
+            "node_modules"    
+        ]    
 }

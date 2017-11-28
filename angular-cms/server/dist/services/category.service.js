@@ -8,9 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Category = require('../../models/category.model');
+const Category = require('../models/category.model');
 /**
+
  * Data Service for the MongoDb Collection of Categories...
+
  */
 class CategoryService {
     constructor() {

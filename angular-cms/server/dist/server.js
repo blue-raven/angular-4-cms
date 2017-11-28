@@ -6,9 +6,10 @@ const Promise = require("bluebird");
 const chalk_1 = require("chalk");
 const forum_routes_1 = require("./routing/forum.routes");
 const admin_routes_1 = require("./routing/admin.routes");
+const config = require('../config.json');
 const magenta = chalk_1.default.bgMagentaBright.white, green = chalk_1.default.bgGreen.white, yellow = chalk_1.default.bgYellow.white;
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://snowy:goober1515@ds115085.mlab.com:15085/studiocc-sandbox', { useMongoClient: true });
+mongoose.connect(config.MONGO_URL, { useMongoClient: true });
 mongoose.connection
     .on('connected', () => {
     console.log(green('Successfully Connected to MLab\'s DB...\n'));
@@ -26,7 +27,7 @@ process.on('SIGINT', () => {
         process.exit(0);
     });
 });
-const port = 8083;
+const port = config.PORT;
 let app = express();
 app.set('port', port);
 app.use(forum_routes_1.default.router);
@@ -37,6 +38,6 @@ let listeningHandler = () => {
 let errorHandler = (err) => {
     console.log(magenta(err));
 };
-let server = app.listen(port);
+let server = app.listen(config.PORT);
 server.on('listening', listeningHandler);
 server.on('error', errorHandler);
